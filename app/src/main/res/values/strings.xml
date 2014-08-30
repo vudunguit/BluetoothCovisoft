@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BluetoothCovisoft</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="rescan_menu">ChooseDevice</string>
+    <string name="scan_menu">SCAN</string>
+
+    <string name="text_bluetooth_not_availeble">Bluetooth module not availeble in your device</string>
+    <string name="text_bluetooth_not_enable">Bluetooth was not enable</string>
+    <string name="device_bonded">BONDED</string>
+    <string name="device_not_bonded">NOTHING</string>
+    <string name="text_does_not_support_uuid_service">Android version does not support this.</string>
+    <string name="text_not_find_service_uuid">Not find service UUID...</string>
+    <string name="text_disconnect">Disconnected</string>
+    <string name="text_connect_failed">Connect Failed</string>
+    <string name="text_connected">Connected</string>
+    
+    <string name="text_sent">Sent</string>
+    <string name="text_received">Received</string>
+    <string name="text_running">Running</string>
+
+    <string name="text_hint_data_send">input char here</string>
+
+</resources>

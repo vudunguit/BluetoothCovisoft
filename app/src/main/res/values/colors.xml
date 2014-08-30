@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gray_opaque">#cc555555</color>
+    <color name="indicator">#88b8b8b8</color>
+    <color name="light_blue">#ff04aded</color>
+    <color name="light_gray">#1a000000</color>
+    <color name="light_green">#ff39b54a</color>
+    <color name="light_opaque">#ccf5f5f5</color>
+    <color name="light_red">#ffed1c24</color>
+    <color name="transparent">#0000ffff</color>
+</resources>
