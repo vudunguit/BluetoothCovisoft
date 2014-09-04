@@ -18,8 +18,8 @@ public class MainApplication extends Application{
     private static MainApplication instance;
 
     public BluetoothSPPClient mBluetoothSPPClient = null;
-
     public BaseStorage mStorage;
+
     private static final String TAG = MainApplication.class.getSimpleName();
 
     public static MainApplication getInstance(){

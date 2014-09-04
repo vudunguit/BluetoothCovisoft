@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuClear"
+        android:title="@string/menu_clear"
+        android:showAsAction="withText"></item>
+    <item
+        android:id="@+id/menuSetEndFlag"
+        android:title="@string/menu_set_stop_flg"
+        android:showAsAction="withText"></item>
+    <item
+        android:id="@+id/menuSaveToFile"
+        android:title="@string/menu_save_to_file"
+        android:showAsAction="withText"></item>
+    <item
+        android:id="@+id/menuClearHistory"
+        android:title="@string/menu_clear_cmd_history"
+        android:showAsAction="withText"></item>
+</menu>

@@ -20,7 +20,12 @@
             </intent-filter>
         </activity>
         <activity android:name="com.covisoft.bluetooth.ui.activity.DeviceListActivity"></activity>
-        <activity android:name="com.covisoft.bluetooth.ui.activity.CMDLineActivity"></activity>
+        <activity android:name="com.covisoft.bluetooth.ui.activity.CMDLineActivity"
+            android:launchMode="singleTop"></activity>
+        <activity android:name="com.covisoft.bluetooth.ui.activity.ByteStreamActivity"
+            android:launchMode="singleTop"></activity>
+        <activity android:name="com.covisoft.bluetooth.ui.activity.KeyBoardActivity"
+            android:launchMode="singleTop"></activity>
     </application>
 
 </manifest>

@@ -1,15 +1,20 @@
 package com.covisoft.bluetooth.ui.activity;
 
+import android.app.ActionBar;
 import android.app.Activity;
-import android.os.Bundle;
+import android.os.Environment;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.covisoft.bluetooth.R;
-import com.covisoft.bluetooth.controller.BluetoothSPP;
-import com.covisoft.bluetooth.controller.BluetoothState;
+import com.covisoft.bluetooth.utils.LocalIOTools;
 
-import org.w3c.dom.Text;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 /**
@@ -17,39 +22,52 @@ import org.w3c.dom.Text;
  */
 public class BaseActivity extends Activity{
 
-    private String MAC;
-    private String NAME;
 
-    private TextView mSentDataCount;
-    private TextView mReceivedCount;
-    private TextView mConnectHoldTime;
 
-    protected BluetoothSPP mBluetoothSPP;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-        Bundle extra = getIntent().getExtras();
-        MAC = extra.getString("MAC");
-        NAME = extra.getString("NAME");
+    protected void enableBackActionBar(){
+        ActionBar mActionBar = getActionBar();
+        mActionBar.setDisplayHomeAsUpEnabled(true);
+    }
 
-        initHeaderView();
-        mBluetoothSPP = new BluetoothSPP(this);
-        if(!mBluetoothSPP.isServiceAvailable()){
-            mBluetoothSPP.setupService();
-            mBluetoothSPP.startService(BluetoothState.DEVICE_ANDROID);
-        }
-        if(mBluetoothSPP.getServiceState() == BluetoothState.STATE_CONNECTED){
-            Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
+    protected void saveToExternal(String data){
+        String mRoot = null;
+        String mFileName = null;
+        String mPath = null;
+        if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+            mRoot = Environment.getExternalStorageDirectory().toString();
         }else{
-            Toast.makeText(this, "Disconnect", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        mFileName = (new SimpleDateFormat("MMddHHmmss", Locale.getDefault())).format(new Date()) + ".txt";
+        mPath = mRoot.concat("/").concat(getString(R.string.app_name));
+        if(LocalIOTools.CoverterByte2File(mPath, mFileName, data.getBytes())){
+            String msg = ("Saved to: ").concat(mPath).concat("/").concat(mFileName);
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, getString(R.string.text_failed_to_save_file), Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void initHeaderView(){
-        mSentDataCount = (TextView)findViewById(R.id.tvSentCount);
-        mReceivedCount = (TextView)findViewById(R.id.tvReceivedCount);
-        mConnectHoldTime = (TextView)findViewById(R.id.tvConnectHoldTime);
+    public String getStringFromRawFile(int rawID){
+        InputStream is = getResources().openRawResource(rawID);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        int i;
+        try{
+            i = is.read();
+            while (i != -1){
+                baos.write(i);
+                i = is.read();
+            }
+            is.close();
+            return baos.toString().trim();
+        }catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
     }
+
+
 }

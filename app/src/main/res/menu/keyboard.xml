@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuKeyboardClear"
+        android:title="@string/menu_clear"
+        android:showAsAction="withText"></item>
+    <item
+        android:id="@+id/menuKeyboardSetButton"
+        android:title="@string/menu_set_key_board_start"
+        android:showAsAction="withText"></item>
+    <item
+        android:id="@+id/menuKeyboardSetEndFlag"
+        android:title="@string/menu_set_stop_flg"
+        android:showAsAction="withText"></item>
+    <item
+        android:id="@+id/menuKeyboardLongPressRepeat"
+        android:title="@string/menu_set_button_long_pass_freq"
+        android:showAsAction="withText"></item>
+    <item
+        android:id="@+id/menuKeyboardIOMode"
+        android:title="@string/menu_io_mode"
+        android:showAsAction="withText"></item>
+    <item
+        android:id="@+id/menuKeyboardSaveToFile"
+        android:title="@string/menu_save_to_file"
+        android:showAsAction="withText"></item>
+</menu>

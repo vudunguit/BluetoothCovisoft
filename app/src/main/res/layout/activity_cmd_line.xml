@@ -13,10 +13,12 @@
         android:id="@+id/svDataContent"
         android:layout_below="@id/layoutHeaderCount"
         android:layout_width="match_parent"
+        android:fadingEdge="vertical"
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/tvDataContent"
             android:layout_width="match_parent"
+            android:singleLine="false"
             android:layout_height="wrap_content" />
     </ScrollView>
 
@@ -26,18 +28,17 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:layout_alignParentBottom="true">
-        <EditText
-            android:id="@+id/txtDataSend"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/text_hint_data_send"/>
-        <Button
-            android:id="@+id/btnSend"
-            android:layout_marginLeft="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"/>
+        <AutoCompleteTextView
+            android:id="@+id/actvCmdInput"
+            android:hint="@string/text_hint_data_send"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:completionThreshold="2"
+            android:layout_alignParentBottom="true"
+            android:imeOptions="actionSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <requestFocus />
+        </AutoCompleteTextView>
     </LinearLayout>
 </RelativeLayout>

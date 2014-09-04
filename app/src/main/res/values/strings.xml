@@ -8,6 +8,8 @@
     <string name="rescan_menu">ChooseDevice</string>
     <string name="scan_menu">SCAN</string>
 
+    <string name="text_click_me">Click Me</string>
+
     <string name="text_bluetooth_not_availeble">Bluetooth module not availeble in your device</string>
     <string name="text_bluetooth_not_enable">Bluetooth was not enable</string>
     <string name="device_bonded">BONDED</string>
@@ -18,10 +20,67 @@
     <string name="text_connect_failed">Connect Failed</string>
     <string name="text_connected">Connected</string>
     
-    <string name="text_sent">Sent</string>
-    <string name="text_received">Received</string>
-    <string name="text_running">Running</string>
+    <string name="text_sent">Sent: %1$dB</string>
+    <string name="text_received">Received: %1$dB</string>
+    <string name="text_running">Running: %1$ds</string>
 
     <string name="text_hint_data_send">input char here</string>
+    <string name="text_failed_to_save_file">Failed to save file</string>
+
+    <string name="dialog_title_sys_err">System Error</string>
+    <string name="dialog_title_alert">Alert</string>
+    <string name="dialog_title_io_mode_set">IO mode selection</string>
+    <string name="dialog_title_end_flg">Set end flag</string>
+    <string name="dialog_title_keyboard_set">Button Function setting</string>
+    <string name="dialog_title_keyboard_long_pass_frea">Long-press repeatedly freq(ms)</string>
+    <string name="dialog_io_mode_input_set">Input type</string>
+    <string name="dialog_io_mode_output_set">Output type</string>
+    <string name="dialog_io_mode_ascii">ASCII</string>
+    <string name="dialog_io_mode_hex">Hex(00-FF)</string>
+    <string name="dialog_end_flg_select">Select end flag template:</string>
+    <string name="dialog_end_flg_rn">Char(\'\\r\\n\')</string>
+    <string name="dialog_end_flg_n">Char(\'\\n\')</string>
+    <string name="dialog_end_flg_other">Other</string>
+    <string name="dialog_end_flg_hex_val">HEX value of the end flag:</string>
+    <string name="actCmdLine_hint_end_flg_val">Command end flag(HEX format)</string>
+
+    <string name="btn_text_ok">OK</string>
+    <string name="actCmdLine_msg_helper">Current end flag: %1$s,Click [send] button finished sending, at the soft keyboard;\n\n</string>
+    <string name="msg_helper_endflg_nothing">End flag is not set. Click [Set end flag] set;\n</string>
+    <string name="msg_bt_connect_lost">Bluetooth device communications connection is lost, try to reconnect</string>
+    <string name="msg_receive_data_wating">Waiting to receive&#8230;\n</string>
+    <string name="msg_receive_data_stop">Receiver terminated</string>
+    <string name="msg_not_hex_string">Invalid HEX string</string>
+
+    <string name="menu_clear">Clear</string>
+    <string name="menu_io_mode">Set IO mode</string>
+    <string name="menu_save_to_file">Save2File</string>
+    <string name="menu_clear_cmd_history">Clear History</string>
+    <string name="menu_set_stop_flg">Set end flag</string>
+    <string name="menu_helper">Helper</string>
+    <string name="menu_set_key_board_start">Set Buttons</string>
+    <string name="menu_set_key_board_end">Buttons set complete</string>
+    <string name="menu_set_key_board_event">Set trigger mode</string>
+    <string name="menu_set_button_long_pass_freq">Set Long-press freq</string>
+    <string name="menu_about">About</string>
+
+    <string name="tv_send_area_title">Sent data area</string>
+    <string name="tv_receive_area_title">Received data area</string>
+    <string name="tv_send_int_keyboard">Set the buttons properties, click [Set end flag]. \n</string>
+    <string name="tips_click_to_hide">Click hidden</string>
+    <string name="tips_click_to_show">Click show</string>
+
+    <string name="actKeyBoard_name">Keyboard mode</string>
+    <string name="actKeyBoard_init">Set the buttons properties, click [Set end flag]. \n</string>
+    <string name="actKeyBoard_set_btnname">Button Name</string>
+    <string name="actKeyBoard_set_btnname_hint">Button display name</string>
+    <string name="actKeyBoard_long_pass_freq_hint">Unit ms，must be >%1$d</string>
+    <string name="actKeyBoard_set_btn_down_send_value">Button Down </string>
+    <string name="actKeyBoard_set_btn_hold_send_value">Button Hold</string>
+    <string name="actKeyBoard_set_btn_up_send_value">Button Up</string>
+    <string name="actKeyBoard_send_value_hint">Input send value</string>
+    <string name="actKeyBoard_set_keyboard_helper">Now is the keyboard setting mode, Click the button area that setting.\n Click [Buttons set complete]back to send mode.\n</string>
+    <string name="actKeyBoard_msg_helper_endflg">Command line last chars is: %1$s;\n</string>
+    <string name="actKeyBoard_msg_repeat_freq_set">Long-press the trigger frequency: %1$dms;</string>
 
 </resources>

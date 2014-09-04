@@ -37,7 +37,7 @@ public class CharHexConverter {
         return sb.toString().trim();
     }
 
-    private static String HexStringToString(String hexString){
+    public static String HexStringToString(String hexString){
         hexString = hexString.toString().trim().replace(" ", "").toUpperCase(Locale.US);
         char[] arrayChar = hexString.toCharArray();
         byte[] bytes = new byte[hexString.length() / 2];
