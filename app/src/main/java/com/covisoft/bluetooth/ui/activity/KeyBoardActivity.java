@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -56,9 +57,9 @@ public class KeyBoardActivity extends BaseCommunicationActivity{
 
     private String msEndFlg = msEND_FLGS[0];
 
-    private final static byte MEMU_SET_END_FLG          = 0x21;
-    private final static byte MENU_SET_KEY_BOARD        = 0x22;
-    private final static byte MENU_SET_LONG_PASS_REPEAT = 0x24;
+//    private final static byte MEMU_SET_END_FLG          = 0x21;
+//    private final static byte MENU_SET_KEY_BOARD        = 0x22;
+//    private final static byte MENU_SET_LONG_PASS_REPEAT = 0x24;
     private final static String SUB_KEY_END_FLG         = "SUB_KEY_END_FLG";
     private final static String SUB_KEY_MODULE_IS_USED  = "SUB_KEY_MODULE_IS_USED";
     private final static String SUB_KEY_BTN_NAME        = "SUB_KEY_BTN_NAME";
@@ -145,6 +146,14 @@ public class KeyBoardActivity extends BaseCommunicationActivity{
                 saveToExternal(tvKeyboardReceive.getText().toString().trim());
                 return true;
             case R.id.menuKeyboardSetButton:
+                if(isSetMode){
+                    item.setTitle(R.string.menu_set_key_board_start);
+                    tvKeyboardSend.setText(getString(R.string.actKeyBoard_init));
+                }else{
+                    item.setTitle(R.string.menu_set_key_board_end);
+                    tvKeyboardSend.setText(getString(R.string.actKeyBoard_set_keyboard_helper));
+                }
+                isSetMode = !isSetMode;
                 return true;
             case R.id.menuKeyboardSetEndFlag:
                 selectEndFlag();
@@ -156,8 +165,63 @@ public class KeyBoardActivity extends BaseCommunicationActivity{
     }
 
     private void selectRepeatFreq(){
+        final AlertDialog dialog;
+        final EditText txtFreq = new EditText(this);
+        txtFreq.setHint(String.format(
+                getString(R.string.actKeyBoard_long_pass_freq_hint)
+                ,BTN_REPEAT_MIN_FREQ));
+        txtFreq.setInputType(InputType.TYPE_CLASS_NUMBER);
+        txtFreq.setText(String.valueOf(iRepeatFreq));
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.dialog_title_keyboard_long_pass_frea));
+        builder.setView(txtFreq);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                int iFreq;
+                if(txtFreq.getText().toString().isEmpty()){
+                    iFreq = 0;
+                }else{
+                    iFreq = Integer.valueOf(txtFreq.getText().toString());
+                }
+                setButtonRepeatFreq(iFreq);
+                String temp = String.format(getString(R.string.actKeyBoard_msg_repeat_freq_set) + "\n", iFreq);
+                tvKeyboardSend.setText(temp);
+            }
+        });
+        builder.setCancelable(false);
+        dialog = builder.create();
+        dialog.show();
 
+        txtFreq.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                int iFreq;
+                if(txtFreq.getText().toString().isEmpty()){
+                    iFreq = 0;
+                }else{
+                    iFreq = Integer.valueOf(txtFreq.getText().toString());
+                }
+                if(iFreq >= BTN_REPEAT_MIN_FREQ){
+                    txtFreq.setTextColor(Color.BLACK);
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                }else{
+                    txtFreq.setTextColor(Color.RED);
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                }
+            }
+        });
     }
     private void selectEndFlag(){
         final AlertDialog dialog;

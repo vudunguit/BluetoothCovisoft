@@ -138,8 +138,16 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 finish();
             }
 
-        }else if(requestCode == REQUEST_CMD_LINE){
-
+        }else if(requestCode == REQUEST_CMD_LINE
+                ||requestCode == REQUEST_BYTE_STREAM
+                ||requestCode == REQUEST_KEY_BOARD){
+            if(MainApplication.getInstance().mBluetoothSPPClient == null
+                    || !MainApplication.getInstance().mBluetoothSPPClient.isConnected()){
+                isConnected = false;
+                setViewVisibility();
+                MainApplication.getInstance().closeConnect();
+                Toast.makeText(MainActivity.this, getString(R.string.msg_bt_connect_lost), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -266,9 +274,13 @@ public class MainActivity extends Activity implements View.OnClickListener{
             i.putExtra(MAC, mDeviceInfo.get(MAC));
             i.putExtra(NAME, mDeviceInfo.get(NAME));
             startActivity(i);
-//            startActivityForResult(i, REQUEST_CMD_LINE);
+            startActivityForResult(i, REQUEST_CMD_LINE);
         }else if(view == mButtonKeyboard){
-
+            Intent i = new Intent(MainActivity.this, KeyBoardActivity.class);
+            startActivityForResult(i, REQUEST_KEY_BOARD);
+        }else if(view == mButtonByteMode){
+            Intent i = new Intent(MainActivity.this, ByteStreamActivity.class);
+            startActivityForResult(i, REQUEST_BYTE_STREAM);
         }
 
     }

@@ -35,8 +35,8 @@ public class CMDLineActivity extends BaseCommunicationActivity{
     private final static byte TYPE_RECEIVE = 0x01;
     private final static byte TYPE_SEND = 0x02;
 
-    private final static String SUB_KEY_END_FLG = "sub_key_end_flag";
-    private final static String SUB_KEY_MODULE_IS_USED = "sub_key_module_is_used";
+    private final static String SUB_KEY_END_FLG = "SUB_KEY_END_FLG";
+    private final static String SUB_KEY_MODULE_IS_USED = "SUB_KEY_MODULE_IS_USED";
 
     private String msEndFlag = msEND_FLGS[0];
     private AutoCompleteTextView mAutoCompleteInput;
