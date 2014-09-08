@@ -10,9 +10,7 @@ import java.lang.reflect.Method;
  */
 public class BluetoothControl {
     static public final String PAIRING_REQUEST = "android.bluetooth.device.action.PAIRING_REQUEST";
-    /**
-     * /Settings/src/com/android/settings/bluetooth/CachedBluetoothDevice.java
-     */
+
     static public boolean createBond(BluetoothDevice btDevice)
             throws Exception
     {
@@ -22,9 +20,7 @@ public class BluetoothControl {
         return returnValue.booleanValue();
     }
 
-    /**
-     * /Settings/src/com/android/settings/bluetooth/CachedBluetoothDevice.java
-     */
+
     static public boolean removeBond(BluetoothDevice btDevice)
             throws Exception
     {
@@ -34,9 +30,7 @@ public class BluetoothControl {
         return returnValue.booleanValue();
     }
 
-    /**
-     * /Settings/src/com/android/settings/bluetooth/CachedBluetoothDevice.java
-     */
+
     static public boolean setPin(BluetoothDevice btDevice, String str)
             throws Exception
     {
@@ -63,11 +57,7 @@ public class BluetoothControl {
         return returnValue.booleanValue();
     }
 
-    /**
-     * cancel Pairing User Input
-     * @see android.Manifest.permission.WRITE_SECURE_SETTINGS<br/>
-     *      Permission is only granted to system apps
-     * */
+
     static public boolean cancelPairingUserInput(BluetoothDevice btDevice)
             throws Exception
     {
@@ -78,10 +68,7 @@ public class BluetoothControl {
         return returnValue.booleanValue();
     }
 
-    /**
-     * cancel Bond Process
-     * @see android.Manifest.permission.WRITE_SETTINGS
-     * */
+
     static public boolean cancelBondProcess(BluetoothDevice btDevice)
             throws Exception
     {

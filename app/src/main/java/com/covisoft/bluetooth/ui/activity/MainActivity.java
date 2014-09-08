@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 
-public class MainActivity extends Activity implements View.OnClickListener{
+public class MainActivity extends Activity implements View.OnClickListener, BluetoothSPP.BluetoothConnectionListener{
 
 
     private LinearLayout mLayoutInfoDevice;
@@ -69,6 +69,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     public static final byte REQUEST_BYTE_STREAM = 0x02;
     public static final byte REQUEST_CMD_LINE = 0x03;
     public static final byte REQUEST_KEY_BOARD = 0x04;
+
+    public static final byte REQUEST_TEST_ACTIVITY = 0x05;
 
     private boolean isPaired = false;
     private boolean isConnected = false;
@@ -261,19 +263,34 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
+//        switch (view.getId()){
+//            case R.id.btnConnect:
+//                new ConnectTask().execute(mDeviceInfo.get(MAC));
+//            case R.id.btnByte:
+//
+//            case R.id.btnCMD:
+//
+//            case R.id.btnKeyboard:
+//
+//            case R.id.btnPair:
+//                mButtonPair.setEnabled(false);
+//                new PairTask().execute(mDeviceInfo.get(MAC));
+//        }
         if(view == mButtonConnect){
 //            mBluetoothSPP.connect(mDeviceInfo.get(MAC));
             new ConnectTask().execute(mDeviceInfo.get(MAC));
         }else if(view == mButtonPair){
             mButtonPair.setEnabled(false);
             new PairTask().execute(mDeviceInfo.get(MAC));
-        }else if(view == mButtonByteMode){
-
         }else if(view == mButtonCMDMode){
+//            mBluetoothSPP.disconnect();
+//            Intent i = new Intent(MainActivity.this, TestActivity.class);
+
             Intent i = new Intent(MainActivity.this, CMDLineActivity.class);
-            i.putExtra(MAC, mDeviceInfo.get(MAC));
-            i.putExtra(NAME, mDeviceInfo.get(NAME));
-            startActivity(i);
+//            i.putExtra(MAC, mDeviceInfo.get(MAC));
+//            i.putExtra(NAME, mDeviceInfo.get(NAME));
+//            startActivityForResult(i, REQUEST_TEST_ACTIVITY);
+//            startActivity(i);
             startActivityForResult(i, REQUEST_CMD_LINE);
         }else if(view == mButtonKeyboard){
             Intent i = new Intent(MainActivity.this, KeyBoardActivity.class);
@@ -490,30 +507,30 @@ public class MainActivity extends Activity implements View.OnClickListener{
         }
     }
 
-//    @Override
-//    public void onDeviceConnectionFailed() {
-//        isConnected = false;
-//        setViewVisibility();
-////        mButtonConnect.setVisibility(View.VISIBLE);
-////        mLayoutControlMode.setVisibility(View.GONE);
-//        Toast.makeText(this, getString(R.string.text_connect_failed), Toast.LENGTH_SHORT).show();
-//    }
-//
-//    @Override
-//    public void onDeviceDisconnected() {
-//        isConnected = false;
-//        setViewVisibility();
-////        mButtonConnect.setVisibility(View.VISIBLE);
-////        mLayoutControlMode.setVisibility(View.GONE);
-//        Toast.makeText(this, getString(R.string.text_disconnect), Toast.LENGTH_SHORT).show();
-//    }
-//
-//    @Override
-//    public void onDeviceConnected(String name, String address) {
-//        isConnected = true;
-//        setViewVisibility();
-////        mButtonConnect.setVisibility(View.GONE);
-////        mLayoutControlMode.setVisibility(View.VISIBLE);
-//        Toast.makeText(this, getString(R.string.text_connected) + name, Toast.LENGTH_SHORT).show();
-//    }
+    @Override
+    public void onDeviceConnectionFailed() {
+        isConnected = false;
+        setViewVisibility();
+//        mButtonConnect.setVisibility(View.VISIBLE);
+//        mLayoutControlMode.setVisibility(View.GONE);
+        Toast.makeText(this, getString(R.string.text_connect_failed), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDeviceDisconnected() {
+        isConnected = false;
+        setViewVisibility();
+//        mButtonConnect.setVisibility(View.VISIBLE);
+//        mLayoutControlMode.setVisibility(View.GONE);
+        Toast.makeText(this, getString(R.string.text_disconnect), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDeviceConnected(String name, String address) {
+        isConnected = true;
+        setViewVisibility();
+//        mButtonConnect.setVisibility(View.GONE);
+//        mLayoutControlMode.setVisibility(View.VISIBLE);
+        Toast.makeText(this, getString(R.string.text_connected) + name, Toast.LENGTH_SHORT).show();
+    }
 }

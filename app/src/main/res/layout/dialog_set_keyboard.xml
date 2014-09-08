@@ -11,14 +11,14 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:singleLine="true"
             android:text="@string/actKeyBoard_set_btnname"/>
         <EditText
             android:id="@+id/txtSetButtonName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:singleLine="true"
             android:hint="@string/actKeyBoard_set_btnname_hint"/>
         <requestFocus/>
@@ -30,14 +30,14 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:singleLine="true"
             android:text="@string/actKeyBoard_set_btn_down_send_value"/>
         <EditText
             android:id="@+id/txtSetButtonDown"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:singleLine="true"
             android:hint="@string/actKeyBoard_send_value_hint"/>
     </LinearLayout>
@@ -48,14 +48,14 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:singleLine="true"
             android:text="@string/actKeyBoard_set_btn_up_send_value"/>
         <EditText
             android:id="@+id/txtSetButtonUp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:singleLine="true"
             android:hint="@string/actKeyBoard_send_value_hint"/>
     </LinearLayout>
@@ -66,14 +66,14 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:singleLine="true"
             android:text="@string/actKeyBoard_set_btn_hold_send_value"/>
         <EditText
             android:id="@+id/txtSetButtonHold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:singleLine="true"
             android:hint="@string/actKeyBoard_send_value_hint"/>
     </LinearLayout>

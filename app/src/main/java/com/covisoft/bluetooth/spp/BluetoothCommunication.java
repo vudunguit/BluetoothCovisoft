@@ -186,7 +186,7 @@ public abstract class BluetoothCommunication {
                 if(SDK_VER >= 11){
                     new ReceiveThread().executeOnExecutor(FULL_TASK_EXECUTOR);
                 }else{
-                    new ReceiveThread().execute();
+                    new ReceiveThread().execute("");
                 }
                 return null;
             }
@@ -230,7 +230,7 @@ public abstract class BluetoothCommunication {
                 if(SDK_VER >= 11){
                     new ReceiveThread().executeOnExecutor(FULL_TASK_EXECUTOR);
                 }else{
-                    new ReceiveThread().execute();
+                    new ReceiveThread().execute("");
                 }
                 SystemClock.sleep(50);
             }

@@ -48,6 +48,7 @@ public class CMDLineActivity extends BaseCommunicationActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActionBar().setTitle("CMD line mode");
         setContentView(R.layout.activity_cmd_line);
 
         initView();
@@ -249,7 +250,7 @@ public class CMDLineActivity extends BaseCommunicationActivity{
         sbTemp.append(data);
         sbTemp.append("\t(");
         sbTemp.append(data.length() + msEndFlag.length());
-        sbTemp.append("B");
+        sbTemp.append("B)");
         sbTemp.append("\n");
         mTextDataContent.append(sbTemp);
     }

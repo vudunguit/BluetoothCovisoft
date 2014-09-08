@@ -39,6 +39,7 @@ public class ByteStreamActivity extends BaseCommunicationActivity implements Vie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActionBar().setTitle("Byte stream mode");
         setContentView(R.layout.activity_byte_stream);
 
         initView();

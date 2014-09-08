@@ -105,6 +105,7 @@ public class KeyBoardActivity extends BaseCommunicationActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActionBar().setTitle("Keyboard mode");
         setContentView(R.layout.activity_keyboard);
 
         initView();
